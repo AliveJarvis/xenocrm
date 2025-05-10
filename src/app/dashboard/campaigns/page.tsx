@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/auth/[...nextauth]';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import CampaignList from '@/components/CampaignList';
+// import CampaignList from '@/components/CampaignList';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import ViewCampaignList from '@/components/ViewCampaign';

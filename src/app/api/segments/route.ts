@@ -14,6 +14,7 @@ import { NextResponse } from 'next/server';
        })
      ),
      audienceSize: z.number().int().min(0),
+     message: z.string().min(10, 'message isnt selected'),
    });
 
    export async function POST(request: Request) {
@@ -26,6 +27,7 @@ import { NextResponse } from 'next/server';
          name: validatedData.name,
          rules: validatedData.rules,
          audienceSize: validatedData.audienceSize,
+         message: validatedData.message
        });
 
        return NextResponse.json(segment, { status: 201 });

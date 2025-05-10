@@ -2,10 +2,11 @@ export const vendorApi = {
   sendMessage: async (
     customer: { id: string; name: string; email: string }, 
     message: string,
-    campaignId: string
-  ) => {    // Always succeed in test/development environment
-    const success = true;
-    const status = 'SENT';
+    campaignId?: string
+  ) => {
+    // Simulate real-world delivery success/failure (~90% SENT, ~10% FAILED)
+    const success = Math.random() < 0.9;
+    const status = success ? 'SENT' : 'FAILED';
 
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -18,9 +19,11 @@ export const vendorApi = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          campaignId,
           customerId: customer.id,
+          message,
           status,
+          timestamp: new Date().toISOString(),
+          campaignId
         }),
       });
 

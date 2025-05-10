@@ -215,6 +215,7 @@ export default function SegmentForm() {
           });
 
           if (!segmentResponse.ok) {
+            console.log('Failed to create segment');            
             throw new Error('Failed to create segment');
           }
 

@@ -9,6 +9,7 @@ import mongoose, { Schema, model, Model } from 'mongoose';
        connector?: string;
      }>;
      audienceSize: number;
+     tag:string
    }
 
    const SegmentSchema = new Schema<ISegment>({
@@ -22,6 +23,7 @@ import mongoose, { Schema, model, Model } from 'mongoose';
        },
      ],
      audienceSize: { type: Number, required: true, min: 0 },
+     tag:String
    });
 
    const Segment: Model<ISegment> = mongoose.models.Segment || model<ISegment>('Segment', SegmentSchema);

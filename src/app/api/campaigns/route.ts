@@ -105,6 +105,7 @@ export async function POST(request: Request) {
       sentCount: 0,
       failedCount: 0,
       customers: customers.map((c: any) => c._id),
+      tag:segment.tag
     });
 
     // Send messages to customers

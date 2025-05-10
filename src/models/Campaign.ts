@@ -8,6 +8,7 @@ import mongoose, { Schema, model, Model } from 'mongoose';
        failedCount: number;
        createdAt: Date;
        customers: string[];
+       tag: string
      }
 
      const CampaignSchema = new Schema<ICampaign>({
@@ -17,6 +18,7 @@ import mongoose, { Schema, model, Model } from 'mongoose';
        sentCount: { type: Number, required: true, min: 0 },
        failedCount: { type: Number, required: true, min: 0 },
        createdAt: { type: Date, default: Date.now },
+       tag:{type:String, required:true},
        customers: [{ type: String, ref: 'Customer' }],
      });
 
